@@ -1,4 +1,13 @@
 {
     "version": 2,
-    "buildCommand" : "npm start"
-}
+    "builds": [{
+      "src": "./app.js",
+      "use": "@vercel/node"
+    }],
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "/"
+      }
+    ]
+  }
