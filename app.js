@@ -16,9 +16,20 @@ app.listen(80, () => {
     console.log("Listening on port 80");
 })
 
-const uri = "mongodb+srv://admin578:test578@cluster0.ysqk1jk.mongodb.net/todo?retryWrites=true&w=majority";
-mongoose.connect(uri);
+async function connectDB() {
+    const uri = "mongodb+srv://admin578:test578@cluster0.ysqk1jk.mongodb.net/todo?retryWrites=true&w=majority";
+    try {
+        await mongoose.connect(uri);
+    }
+    catch
+    {
+        e => {
+            console.log(e);
+        }
+    }
+}
 
+connectDB()
 
 app.get("/", (req, res) => {
     async function run() {
