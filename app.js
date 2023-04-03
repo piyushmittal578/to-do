@@ -11,9 +11,9 @@ app.set('view engine', 'ejs');
 //body parser
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-
-app.listen(80, () => {
-    console.log("Listening on port 80");
+const port = process.env.PORT || 9001;
+app.listen(port, () => {
+    console.log(`Listening on port ${port}`);
 })
 
 //deploy
